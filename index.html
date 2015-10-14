@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="jsonApp">
+<head>
+  <meta charset="UTF-8">
+  <title>ng-json</title>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.min.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/jsonFactory.js"></script>
+  <script type="text/javascript" src="js/JsonController.js"></script>
+</head>
+<body>
+  
+<main ng-controller="JsonController as json">
+    <h1>{{ json.title }}</h1> 
+    <ul>
+      <li ng-repeat="pullRequest in json.pullRequests"><a ng-href="{{ pullRequest.html_url }}">{{ pullRequest.title }}</a> <button ng-click="main.deleteCharacter(character)">Delete</button></li>
+    </ul>
+    <ul>
+      <li ng-repeat="issue in json.issues">{{ issue.title }}</li>
+    </ul>
+  </main>
+
+</body>
+</html>
