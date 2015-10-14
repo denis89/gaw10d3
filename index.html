@@ -7,14 +7,14 @@
   <script type="text/javascript" src="js/app.js"></script>
   <script type="text/javascript" src="js/jsonFactory.js"></script>
   <script type="text/javascript" src="js/JsonController.js"></script>
-  
+
 </head>
 <body>
   
 <main ng-controller="JsonController as json">
     <h1>{{ json.url }}</h1> 
     <ul>
-      <li ng-repeat="pullRequest in json.pullRequests"><a ng-href="{{ pullRequest.html_url }}">{{ pullRequest.url }}</a> <!--<button ng-click="main.deleteJson(json)">Delete</button>--></li>
+      <li ng-repeat="pullRequest in json.pullRequests"><a ng-href="{{ pullRequest.html_url }}">{{ pullRequest.url }}</a> <button ng-click="main.deleteJson(json)">Delete</button></li>
     </ul>
     <ul>
       <li ng-repeat="issue in json.issues">{{ issue.url }}</li>

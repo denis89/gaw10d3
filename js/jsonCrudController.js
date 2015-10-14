@@ -6,7 +6,7 @@ angular
 var self = this;
    JsonCrudController.$inject = ['//$resource'];
     
-  function JsonCrudController($resource) {
+  function JsonCrudController($resource,JsonFactory) {
   
   var Json = $resource('http:////localhost:3000/jsons/:id', { id: '@_id' });
     self.jsons = Json.query();
@@ -17,7 +17,17 @@ var self = this;
     self.jsons.splice(index, 1);
     }
    
-   
+   JsonFactory.getPullRequests()
+    .then(function(response) {
+      self.pullRequests = response;
+     console.log(response);
+    });
+
+  JsonFactory
+    .getIssues()
+    .then(function(response) {
+      self.issues = response;
+    });
 
   };
 
